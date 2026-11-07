@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NativeSpark Studio · Independent Android games</title>
+<meta name="description" content="NativeSpark Studio is an independent studio making bright, offline-first games for Android, including Break N Egg.">
+<link rel="canonical" href="https://nativespark-studio.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NativeSpark Studio">
+<meta property="og:title" content="NativeSpark Studio · Independent Android games">
+<meta property="og:description" content="Bright, offline-first games for Android. Play Break N Egg on Google Play.">
+<meta property="og:url" content="https://nativespark-studio.github.io/">
+<meta property="og:image" content="https://nativespark-studio.github.io/assets/img/og-studio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#10263d">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/LuckiestGuy-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"NativeSpark Studio","url":"https://nativespark-studio.github.io/","logo":"https://nativespark-studio.github.io/assets/img/studio-logo-512.png","email":"studionativespark@gmail.com"}
+</script>
+<style>
+@font-face{font-family:"Luckiest Guy";src:url("assets/fonts/LuckiestGuy-Regular.ttf") format("truetype");font-display:swap}
+:root{
+  --bg:#fffaf1;--surface:#ffffff;--surface-2:#fff3dc;--ink:#1d2836;--muted:#55606f;--line:#eadfcb;
+  --gold:#ffc94a;--gold-deep:#e8a21a;--gold-ink:#5a3800;--teal:#0b7682;--teal-ink:#ffffff;
+  --hero-1:#10263d;--hero-2:#0b5866;--hero-ink:#f4f7fb;--hero-muted:#c5d6e4;
+  --shadow:0 18px 40px -22px rgba(16,38,61,.55);
+  --display:"Luckiest Guy","Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1621;--surface:#152131;--surface-2:#1b2a3d;--ink:#eef2f7;--muted:#a9b6c5;--line:#263649;
+  --teal:#3fb7c3;--teal-ink:#06222a;--shadow:0 18px 40px -22px rgba(0,0,0,.8);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1621;--surface:#152131;--surface-2:#1b2a3d;--ink:#eef2f7;--muted:#a9b6c5;--line:#263649;
+  --teal:#3fb7c3;--teal-ink:#06222a;--shadow:0 18px 40px -22px rgba(0,0,0,.8);color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:10px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--gold-ink);padding:8px 14px;border-radius:8px;z-index:10}
+.skip:focus{left:16px}
+
+/* Header + hero share the dark sky */
+.sky{background:radial-gradient(1100px 520px at 85% -10%,rgba(255,201,74,.22),transparent 60%),linear-gradient(160deg,var(--hero-1) 0%,#12334f 45%,var(--hero-2) 100%);color:var(--hero-ink)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:1.2rem;letter-spacing:.02em;line-height:1}
+.brand img{flex:none;width:40px;height:40px}
+.nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--hero-muted);padding:6px 10px;border-radius:999px}
+.nav a:hover{color:var(--hero-ink);background:rgba(255,255,255,.08)}
+.hero{padding-top:48px;padding-bottom:88px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.eyebrow{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.05;margin:0}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.25)}
+h1 .spark{color:var(--gold)}
+.lede{font-size:clamp(1.1rem,2.2vw,1.3rem);color:var(--hero-muted);max-width:34ch;margin:20px 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1rem;padding:13px 20px;border-radius:14px;border:2px solid transparent;transition:transform .15s ease,background-color .15s ease}
+.btn-gold{background:var(--gold);color:var(--gold-ink);box-shadow:0 5px 0 var(--gold-deep)}
+.btn-gold:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.hero-art{position:relative;justify-self:center;width:min(100%,320px)}
+.hero-art img{display:block;width:100%;height:auto;aspect-ratio:1;filter:drop-shadow(0 24px 34px rgba(0,0,0,.45))}
+
+/* Sections */
+section.wrap{padding-top:80px;padding-bottom:80px}
+#contact{padding-top:0}
+.section-head{max-width:640px;margin-bottom:32px}
+h2{font-size:clamp(2rem,4.5vw,2.8rem);color:var(--ink)}
+.section-head p{color:var(--muted);margin:12px 0 0}
+
+.game{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+.game-main{display:grid;grid-template-columns:auto 1fr;gap:28px;padding:32px;align-items:center}
+.game-icon{width:132px;height:132px;border-radius:30px;box-shadow:0 10px 24px -12px rgba(0,0,0,.45)}
+.game h3{font-size:clamp(1.8rem,4vw,2.4rem)}
+.game p{margin:8px 0 0;color:var(--muted);max-width:56ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:16px 0 0}
+.chips li{font-size:.875rem;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.game .actions{margin-top:20px}
+.btn-teal{background:var(--teal);color:var(--teal-ink)}
+.btn-teal:hover{transform:translateY(-1px)}
+.btn-line{border-color:var(--line);color:var(--ink)}
+.btn-line:hover{background:var(--surface-2)}
+
+.shots{list-style:none;margin:0;padding:8px 32px 32px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:32px;scrollbar-width:thin}
+.shots li{scroll-snap-align:start}
+.shots img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:18px;border:3px solid var(--surface-2);background:var(--surface-2)}
+
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px}
+.value svg{display:block;margin-bottom:14px}
+.value h3{font-size:1.45rem;color:var(--ink)}
+.value p{margin:8px 0 0;color:var(--muted)}
+
+.contact{background:var(--surface-2);border-radius:28px;padding:40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.contact p{margin:10px 0 0;color:var(--muted);max-width:48ch}
+.mail{font-weight:700;font-size:1.1rem;overflow-wrap:anywhere}
+
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.9375rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{color:var(--muted)}
+.foot-brand{margin:0;display:flex;align-items:center;gap:10px}.foot-brand img{flex:none}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:24px;padding-bottom:64px;gap:32px}
+  .hero-art{width:min(52%,240px);grid-row:1;justify-self:start}
+  .values{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .top{flex-direction:column;align-items:flex-start;gap:10px}
+  .hero-art{width:200px}
+  .nav{justify-content:flex-start;margin-left:-10px}
+  section.wrap{padding-top:56px;padding-bottom:56px}
+  #contact{padding-top:0}
+  .game-main{grid-template-columns:1fr;padding:24px;gap:18px}
+  .game-icon{width:96px;height:96px;border-radius:22px}
+  .shots{padding:4px 24px 24px;scroll-padding-inline:24px;grid-auto-columns:46%}
+  .contact{padding:28px 24px}
+  .btn{flex:1 1 auto;justify-content:center}
+  .mail{font-size:.95rem;padding:13px 12px;text-align:center;overflow-wrap:normal;white-space:nowrap}
+}
+@media (max-width:359px){.mail{font-size:.84rem;padding:13px 8px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sky">
+  <header class="wrap top">
+    <a class="brand" href="./" aria-label="NativeSpark Studio home">
+      <img src="assets/img/favicon.svg" width="40" height="40" alt="">
+      <span>NativeSpark Studio</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#approach">Our approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Independent game studio</p>
+      <h1>Native<span class="spark">Spark</span><br>Studio</h1>
+      <p class="lede">We make bright, offline-first games for Android. Pick them up anywhere, no account needed.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#games">See our game</a>
+        <a class="btn btn-ghost" href="#contact">Contact us</a>
+      </div>
+    </div>
+    <div class="hero-art"><img src="assets/img/studio-logo.svg" width="512" height="512" alt="NativeSpark Studio logo: a golden four-point spark on a navy badge"></div>
+  </div>
+</div>
+
+<main id="main">
+  <section id="games" class="wrap" aria-labelledby="games-title">
+    <div class="section-head">
+      <h2 id="games-title">Our games</h2>
+    </div>
+    <article class="game" aria-labelledby="bne-title">
+      <div class="game-main">
+        <img class="game-icon" src="assets/img/break-n-egg-icon.webp" width="512" height="512" alt="">
+        <div>
+          <h3 id="bne-title">Break N Egg</h3>
+          <p>Crack a giant egg, power up your chickens and unlock a world of surprises. Fire at will, crack the golden egg, chase the runaway egg and set off combo frenzies before time runs out.</p>
+          <ul class="chips" aria-label="Game facts">
+            <li>Android</li><li>Plays offline</li><li>No account</li><li>No ads</li><li>No data collected</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-teal" href="https://play.google.com/store/apps/details?id=com.breakNegg.game">
+              <svg width="18" height="20" viewBox="0 0 18 20" aria-hidden="true"><path d="M1 1.2v17.6c0 .5.5.8.9.5l15.2-8.8c.4-.2.4-.8 0-1L1.9.7C1.5.4 1 .7 1 1.2Z" fill="currentColor"/></svg>
+              View on Google Play
+            </a>
+            <a class="btn btn-line" href="break-n-egg/">Privacy policy</a>
+          </div>
+        </div>
+      </div>
+      <ul class="shots" aria-label="Break N Egg screenshots">
+        <li><img src="assets/img/shot-crack.webp" width="540" height="960" loading="lazy" alt="A giant cracked egg with an angry face in a sunny farmyard, chickens in the grass"></li>
+        <li><img src="assets/img/shot-golden.webp" width="540" height="960" loading="lazy" alt="A glowing golden egg covered in swirling rune patterns"></li>
+        <li><img src="assets/img/shot-fire.webp" width="540" height="960" loading="lazy" alt="Fire at Will: a blaster hits the egg for a super hit"></li>
+        <li><img src="assets/img/shot-runaway.webp" width="540" height="960" loading="lazy" alt="Find the runaway egg hidden in an underwater ruin full of treasure"></li>
+        <li><img src="assets/img/shot-sun.webp" width="540" height="960" loading="lazy" alt="Sun Rampage power-up scorching the egg"></li>
+        <li><img src="assets/img/shot-combo.webp" width="540" height="960" loading="lazy" alt="Combo frenzy: colorful bursts and big score numbers over the egg"></li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="approach" class="wrap" aria-labelledby="approach-title">
+    <div class="section-head">
+      <h2 id="approach-title">Our approach</h2>
+      <p>Small team, simple promises.</p>
+    </div>
+    <div class="values">
+      <div class="value">
+        <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="var(--surface-2)"/><path d="M11 18a16 16 0 0 1 22 0M15 23a10 10 0 0 1 14 0M19.5 28a4 4 0 0 1 5 0" stroke="var(--teal)" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M12 12l20 20" stroke="var(--gold-deep)" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <h3>Play anywhere</h3>
+        <p>Our games run offline. No sign-in and no internet connection needed.</p>
+      </div>
+      <div class="value">
+        <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="var(--surface-2)"/><path d="M22 10l10 4v7c0 6.5-4.2 11.3-10 13-5.8-1.7-10-6.5-10-13v-7l10-4Z" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linejoin="round"/><path d="M17.5 22l3.2 3.2 6-6.4" fill="none" stroke="var(--gold-deep)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Private by design</h3>
+        <p>No ads, no analytics and no tracking. Your progress stays on your device.</p>
+      </div>
+      <div class="value">
+        <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="var(--surface-2)"/><path d="M22 9c1 5.4 4.6 9 10 10-5.4 1-9 4.6-10 10-1-5.4-4.6-9-10-10 5.4-1 9-4.6 10-10Z" fill="var(--gold)" stroke="var(--gold-deep)" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <h3>Built native</h3>
+        <p>Native Android code and OpenGL graphics for smooth, responsive play.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap" aria-labelledby="contact-title">
+    <div class="contact">
+      <div>
+        <h2 id="contact-title">Contact</h2>
+        <p>For game support, privacy requests and business inquiries, email us.</p>
+      </div>
+      <a class="btn btn-teal mail" href="mailto:studionativespark@gmail.com">studionativespark@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-brand"><img src="assets/img/favicon.svg" width="28" height="28" alt="">© 2026 NativeSpark Studio</p>
+    <nav aria-label="Footer">
+      <a href="break-n-egg/">Break N Egg privacy policy</a>
+      <span>No cookies or tracking on this site</span>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

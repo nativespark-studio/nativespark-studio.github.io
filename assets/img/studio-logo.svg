@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NativeSpark Studio logo">
+<style>
+.tw{transform-box:fill-box;transform-origin:center;animation:tw 3s ease-in-out infinite}
+.tw2{animation-delay:-1s}.tw3{animation-delay:-2s}
+.bolt{animation:zap 3.6s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes zap{0%,86%,100%{filter:none}90%{filter:brightness(1.35) drop-shadow(0 0 8px #ffe08a)}}
+@media (prefers-reduced-motion:reduce){.tw,.bolt{animation:none}}
+</style>
+<defs>
+<radialGradient id="glow" cx="50%" cy="55%" r="50%">
+<stop offset="0" stop-color="#ffc94a" stop-opacity=".5"/><stop offset=".65" stop-color="#ffc94a" stop-opacity=".1"/><stop offset="1" stop-color="#ffc94a" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#1d4a73"/><stop offset=".55" stop-color="#10263d"/><stop offset="1" stop-color="#091a2b"/>
+</linearGradient>
+<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#3fb7c3"/><stop offset="1" stop-color="#ffc94a"/>
+</linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#ffe9a3"/><stop offset=".5" stop-color="#ffc94a"/><stop offset="1" stop-color="#e8a21a"/>
+</linearGradient>
+<linearGradient id="hot" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#fff0b3"/><stop offset="1" stop-color="#ffc94a"/>
+</linearGradient>
+<clipPath id="egg"><path d="M256 36C374 36 446 226 446 322C446 418 364 478 256 478C148 478 66 418 66 322C66 226 138 36 256 36Z"/></clipPath>
+</defs>
+<ellipse cx="256" cy="290" rx="250" ry="236" fill="url(#glow)"/>
+<path d="M256 36C374 36 446 226 446 322C446 418 364 478 256 478C148 478 66 418 66 322C66 226 138 36 256 36Z" fill="url(#shell)"/>
+<g clip-path="url(#egg)">
+<path d="M66 40H300C190 100 110 220 66 380Z" fill="#fff" fill-opacity=".06"/>
+<path d="M120 470C190 400 330 400 420 470" fill="none" stroke="#3fb7c3" stroke-opacity=".25" stroke-width="3"/>
+</g>
+<path d="M256 36C374 36 446 226 446 322C446 418 364 478 256 478C148 478 66 418 66 322C66 226 138 36 256 36Z" fill="none" stroke="url(#rim)" stroke-width="10"/>
+<path d="M146 214H196V404H146Z" fill="url(#gold)"/>
+<path d="M316 214H366V404H316Z" fill="url(#gold)"/>
+<path class="bolt" transform="translate(256 303) rotate(-17) scale(.92) translate(-256 -293)" d="M214 150L324 282H264L318 436L188 270H246Z" fill="url(#hot)" stroke="#10263d" stroke-width="10" stroke-linejoin="round"/>
+<g class="tw" fill="#ffe08a"><path d="M388 88c2.6 15 11 23.4 26 26-15 2.6-23.4 11-26 26-2.6-15-11-23.4-26-26 15-2.6 23.4-11 26-26Z"/></g>
+<g class="tw tw2" fill="#3fb7c3"><path d="M440 168c1.6 9 6.4 13.4 15 15-8.6 1.6-13.4 6.4-15 15-1.6-8.6-6.4-13.4-15-15 8.6-1.6 13.4-6 15-15Z"/></g>
+<g class="tw tw3" fill="#ffc94a"><path d="M120 120c1.8 10 7.4 15.6 17 17-9.6 1.8-15.2 7.4-17 17-1.8-9.6-7.4-15.2-17-17 9.6-1.4 15.2-7 17-17Z"/></g>
+</svg>
